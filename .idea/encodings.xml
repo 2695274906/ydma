@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/itsqh-browsing-history" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-course" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-coursecollect" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-direction" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-evaluate" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-issue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-login-history" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-note" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-notecollect" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-parent/itsqh-browsing-history" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-parent/itsqh-course" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-parent/itsqh-direction" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-parent/itsqh-evaluate" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-parent/itsqh-issue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-parent/itsqh-note" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-parent/itsqh-notecollect" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-parent/itsqh-test" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-parent/itsqh-user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-user" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/itsqh-video" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ydma-web" charset="UTF-8" />
+  </component>
+</project>

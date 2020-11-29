@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: itsqh-direction
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: 张国旗
+Implementation-Vendor-Id: cn.itsqh
+Build-Jdk: 1.8.0_162
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/itsqh-parent/itsqh-direction
+Created-By: Maven Integration for Eclipse
+

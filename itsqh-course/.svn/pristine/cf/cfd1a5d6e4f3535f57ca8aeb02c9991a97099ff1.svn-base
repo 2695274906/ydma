@@ -1,0 +1,43 @@
+package cn.dao;
+
+import java.util.List;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.stereotype.Controller;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import cn.itsqh.ydma.RunCourseBoot;
+import cn.itsqh.ydma.dao.CollectCourseMapper;
+import cn.itsqh.ydma.dao.CourseMapper;
+import cn.itsqh.ydma.entity.CollectCourse;
+import cn.itsqh.ydma.entity.Course;
+
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes= {RunCourseBoot.class})
+public class TestDao {
+	
+	@Autowired
+	private CollectCourseMapper colldao;
+	
+	@Autowired
+	private CourseMapper cour;
+	
+	@Test
+	public void test1() {
+		List<CollectCourse> list = colldao.selectCollectCourseByUserId(1);
+		list.forEach(CollectCourse ->
+		System.out.println(CollectCourse.getCourse()));
+	}
+	
+	@Test
+	public void test2() {
+		System.out.println("---------------");
+		List<Course> list = cour.selectByLike("ora");
+		System.out.println(list.size());
+		list.forEach(action -> System.out.println(action.getId() +  " " + action.getName()));
+	}
+}

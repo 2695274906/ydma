@@ -1,0 +1,605 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>欢迎学习</title>
+<link rel="stylesheet" href="/css/a.css">
+<link rel="stylesheet" href="/css/jquery.css">
+<link rel="stylesheet" href="/css/layer.css">
+<link rel="stylesheet" href="/css/share_style0_16.css">
+<link rel="stylesheet" type="text/css" href="/css/reset.css" />
+<link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="/css/willesPlay.css" />
+<script src="/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/willesPlay.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript"  src="/layer/layer.js" charset="utf-8"></script>
+<script type="text/javascript"  src="/jwplayer/jwplayer.js" charset="utf-8"></script>
+<script type="text/javascript"  src="/jwplayer/swfobject.js" charset="utf-8"></script>
+<!-- 网页标题栏图标 -->
+<link rel="SHORTCUT ICON" href="/favicon.ico"/>
+<!-- 笔记编辑框样式 -->
+<style type="text/css">
+.wys_context{
+    width: 350px;
+	height: 110px;
+	border: 1px solid #8B9CAF;
+}
+
+#playVideo{
+	width:2000px;
+	height: 100%;
+}
+    
+/*评论成功提示的样式*/
+#showResult {
+	position: absolute;
+	visibility: hidden;
+	overflow: hidden;
+	border: 1px solid #CCC;
+	background-color: #F9F9F9;
+	border: 1px solid #333;
+	padding: 5px;
+}
+</style>
+</head>
+<body>
+	
+	 <div th:replace="head_black"></div>
+	
+	<div id="studyMain">
+		<div id="bgarea" class="video-con">
+			<div class="js-box-wrap" style="width: 100%; height: 611px;">
+				<!-- <div id="J_Box" class="course-video-box"> -->
+
+					<!-- 视频播放器 -->
+					<div class="container"> 
+						<div class="row">
+							<div class="col-md-8">
+								<div id="willesPlay">
+										<div width="100%" height="100%" id="playVideo" align="center"></div>
+										<script type='text/javascript'>
+										var flashvars = {  
+											   file:'oracle_1.mp4',  
+											   streamer:'rtmpt://localhost:5080/oflaDemo/'  
+										};  
+											  
+										swfobject.embedSWF('/jwplayer/player.swf','playVideo','1100','600','9.0.115','false', flashvars,  
+											   {allowfullscreen:'true',allowscriptaccess:'always'},  
+											   {id:'jwplayer',name:'jwplayer'}  
+											  );  
+										</script>
+					
+							</div>
+						</div>
+					</div>
+					<div style="text-align: center; clear: both;"></div>
+
+				<!--</div>
+		 	</div> -->
+
+
+
+
+			<!--此处结构为练习题，视频，编程公用的侧栏-->
+			<div class="section-list">
+
+				<!-- 视频右侧笔记  提问 框 -->
+			<!-- 	<div class="operator">
+					
+					<div class="op notes" id="wys_note">
+						<em class="icon-note"></em>笔记
+					</div>
+					<div class="op question" id="wys_question">
+						<em class="icon-addques"></em>提问
+					</div>
+					
+				</div> -->
+
+
+				<div class="nano has-scrollbar">
+					
+					<!-- 弹出笔记框 记笔记 -->
+					<div class="nano-pane">
+						<div class="nano-slider" style="height: 300px; transform: translate(0px, 0px);">
+						
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!--练习题，视频，编程公用的侧栏 结束 -->
+
+		</div>
+		
+
+	</div>
+	</div>
+	<!-- studentmain 结束 -->
+			<!-- 评论/问答/笔记切换函数开始 -->
+	<script type="text/javascript">
+	    $(function(){
+	    	wys_pl();
+	    	wys_wd();
+	    	wys_bj();
+	    });
+	    
+	    
+	    function wys_pl(){
+	    	$("#qa-content1").show();
+	    	$("#pl-content").show();
+	    	$("#qa-content").hide();
+	    	$("#note-content").hide();
+	    	
+	    	$("#plMenu").css("color", "red");
+	    	$("#qaMenu").css("color", "#4D555D");
+	    	$("#noteMenu").css("color", "#4D555D");
+	    };
+	    
+	    function wys_wd(){
+	    	$("#pl-content").hide();
+	    	$("#qa-content").show();
+	    	$("#note-content").hide();
+	    	$("#qa-content1").hide();
+	    	
+	    	$("#plMenu").css("color", "#4D555D");
+	    	$("#qaMenu").css("color", "red");
+	    	$("#noteMenu").css("color", "#4D555D");
+	    	
+	    };
+	    
+	    function wys_bj(){
+	    	$("#pl-content").hide();
+	    	$("#qa-content").hide();
+	    	$("#note-content").show();
+	    	
+	    	
+	    	
+	    	$("#plMenu").css("color", "#4D555D");
+	    	$("#qaMenu").css("color", "#4D555D");
+	    	$("#noteMenu").css("color", "red");
+	    	
+	    };
+	    
+	    
+	
+	</script>	
+			<!-- 评论/问答/笔记切换函数结束 -->
+
+	<div class="course-subcontainer clearfix">
+		<!-- 视频下 的   评论 问答 笔记  选项 -->
+		<div class="course-left">
+			<ul class="course-menu course-video-menu clearfix js-course-menu"
+				data-ower="my" data-sort="last"
+				style="position: absolute; left: 0px;">
+				<li onclick="wys_pl()" class="course-menu-item" id="zxy_01">
+					<a class="" id="plMenu">评论</a>
+				</li>
+				<li onclick="wys_wd()" class="course-menu-item" id="gz_01">
+					<a id="qaMenu" class="">问答</a>
+				</li>
+				<li onclick="wys_bj()" class="course-menu-item" id="wys_01">
+					<a id="noteMenu" class="">笔记</a>
+				</li>
+			</ul>
+			
+
+			<div id="disArea" class="lists-container list-wrap">
+				<!-- 评论部分 -->
+				<div id="pl-content" class="list-tab-con" style="display: none;">
+					<!-- 评论框 -->
+					<div class="publish clearfix" id="discus-publish">
+						<div class="publish-wrap publish-wrap-pl">
+							<div class="pl-input-wrap clearfix">
+								<a href="#" class="user-head l"> <img src="/images/72.jpg" alt="用户名">
+								</a>
+								<div>
+									<textarea  style="resize: none;float: right;margin: 0px 25px;width: 690px;height: 100px;border: 1px solid rgba(160, 160, 160, 0.8);border-radius: 3px;" id="textContext" class="js-placeholder" placeholder="扯淡、吐槽、表扬、鼓励……想说啥就说啥！" required></textarea>
+									<br /> <br /> 
+									<input onclick="zxy_eva_Context()" id="subContext" class="r course-btn" type="button" value="提交评论" />
+								</div>
+								<div id="showResult"></div>
+							</div>
+
+						</div>
+					</div>
+					<!-- 评论框 结束 -->
+
+					<div id="plLoadListData">
+						<!-- 评论展示 -->
+						<div class="pl-container">
+							<ul>
+								<!-- 此DIV块 绑定了事件，可以通过点击“评论”局部刷新获取数据库中该视频的评价列表 -->
+								<div></div>
+							</ul>
+						</div>
+						<!-- 评论展示结束 -->
+					</div>
+				</div>
+				<!-- 评论部分结束 -->
+
+				<!-- 问答模块  -->
+				<div id="qa-content" class="list-tab-con" style="display: none;">
+					<div id="qaLoadListData">
+						<div id="addIssue" class="answertabcon">
+					
+						</div>
+						<div class="page discuss-list-page">1</div>
+					</div>
+				</div>
+				<div id="qa-content1" class="list-tab-con" style="display: block;">
+					<div id="qaLoadListData">
+						<div class="sortlist">
+							<div class="ordertab clearfix">
+								<a href="javascript:void(0)" hidefocus="true" data-order="1" class="quealltab onactive">
+									
+								</a>
+								<a href="javascript:void(0)" hidefocus="true" data-order="2" class="quealltab ">
+									
+								</a>
+							</div>
+						</div>
+						
+				 
+						 <div class="answertabcon">
+							<div id="addPL" class="wenda-listcon clearfix">
+							<!-- 	评论 -->
+								
+								
+							</div>
+						</div> 
+						
+						<div class="page discuss-list-page"></div>
+					</div>  
+
+				</div>
+				
+					
+				<!-- 问答模块 结束 -->
+
+				<!-- 笔记模块  -->
+				<div id="note-content" class="list-tab-con" style="">
+					<div id="noteLoadListData">
+						<div class="course-tool-bar clearfix js-select-state">
+							
+                             <!-- 笔记滑动开关 -->							
+								<div class="tool-right r" style="margin-top: -35px;">
+								<!-- 查看笔记选择分类   -->
+								<div class="switch-box" >                 
+									 <input id="default" class="switch-box-input" type="checkbox" onclick="choose1(${userId},${videoId })"/><!--顺序 userId  video_id -->
+									 <label for="default" class="switch-box-slider " id="Label1" ></label>
+									 <label for="default" class="switch-box-label " id="Label2"  >只看我的</label>
+								</div>
+							</div>
+
+						</div>
+
+						<div id="course_note" class="course_note">
+							<div id="addNote" class="unnote">
+
+							<!-- 	动态查询笔记 -->
+
+							</div>
+						</div>
+						<div id="course_note" class="course_note">
+							<ul id="wys_Notes">
+							     <!-- 我的笔记 -->
+
+									</ul>
+								</div>
+
+						<div class="page note-list-page"></div>
+					</div>
+				</div>
+				<!-- 笔记模块结束 -->
+
+			</div>
+
+		</div>
+		<!-- 视频下 的   评论 问答 笔记  选项 结束  -->
+
+		<div class="course-right clearfix">
+			<!-- 大家都关注 + 推荐课程  的部分 -->
+			<div class="js-recom-box">
+
+				<!-- 推荐课程 的部分   个数自己定-->
+				<div class="box mb40 recom-course-list-box">
+					<h4>推荐课程</h4>
+					<ul id="Courses" class="js-recom-course recom-course-list clearfix">
+
+						<!--	 推荐课程的动态加载 -->
+						
+					</ul>
+				</div>
+				<!-- 推荐课程 的部分   结束-->
+			</div>
+			<!-- 笔记推荐 部分 -->
+			<div class="articlelist js-right-article" style="display: block;">
+				<div class="course-right-title">
+					<h3>手记推荐</h3>
+					<a href="javascript:void(0)" class="more">更多</a>
+				</div>
+				<div class="course-right-content"></div>
+				<ul id="likenote">
+					
+					<!-- 动态添加推荐笔记 -->
+
+				</ul>
+			</div>
+			<!-- 笔记推荐 部分结束 -->
+		</div>
+	</div>
+
+	<!-- 底部内容  -->
+	<div id="footer">
+		<div th:replace="footer_black"></div>
+	</div>
+	<!-- 底部内容结束   -->
+
+	<!--问答弹出框 通用-->	
+	<div id="video_mark" class="video_mark" style="display: none;"></div>
+
+	<div class="moco-usercard-dialog js-moco-usercard-modal"></div>
+
+<!-- 提问 笔记 弹出层事件函数 -->
+<script type="text/javascript">
+
+	function zxy_eva_Context(){
+		var context = document.getElementById('textContext').value; 
+		var token = localStorage.token;
+		var videoId = getQueryString("videoId");
+		//alert("videoId = " + videoId + "context = " + context);
+		$.ajax({
+			url:"http://localhost:7007/user/addevaluate",
+			data:{"token":token,"context":context,"videoid":videoId},
+			dataType:"json",
+			type:"post",
+			success:function(result){
+				if(result.code == 0){
+					alert(result.msg);
+				}else{
+					alert(result.msg);
+				}
+			}
+		});
+		
+	};
+
+
+/*
+ *提问弹出层函数
+ */
+
+ $(document).on('click', '#wys_question', function() {
+	 layer.open({ 
+         type : 2,
+         border : [1 , 1 , 'gray', true],  
+         //shade: 0, 
+         shadeClose:true,
+         title : ['<div style="text-align: center">提 问</div >',true],  
+         content:'/user/questions',
+         area : ['500px' , '420px'],  
+         offset : ['100px',''], 
+         resize:false
+     });  
+	 
+	 
+	});
+/*
+ *笔记弹出层
+ 
+ */
+
+ $(document).on('click', '#wys_note', function() {
+	 layer.open({ 
+         type : 2,
+         border : [1 , 1 , 'gray', true],  
+         shadeClose:true,
+         title : ['<div style="text-align: center">笔 记</div >',true],  
+         content:'/user/self_note',
+         area : ['500px' , '320px'],  
+         offset : ['100px',''], 
+         resize:false
+     }); 
+	});
+
+
+</script>
+<script type="text/javascript">
+	$(function(){
+		//	显示评论
+		loadEvaluate();
+		//	显示回答
+		loadIssue();
+		//	显示笔记
+		loadNote();
+		//	课程推荐
+		loadCourse();
+		
+	});
+	
+	
+	function loadCourse(){
+		$.ajax({
+			url:"http://localhost:7002/course/scoredesc",
+			type:"get",
+			data:{"subjectId":4},
+			dataType:"json",
+			success:function(result){
+				if(result.code==0){
+					var courses = result.data;
+					//	循环显示推荐课程
+					var id = courses[0].id;
+					var name = courses[0].name;
+					var intro = courses[0].intro;
+					var learnCount = courses[0].learnCount;
+					var score = courses[0].score;
+					var image = courses[0].image;
+					str='';
+					str+='<li class="clearfix">';
+					str+='<a href="/user/course?cid='+id+'" class="clearfix">';
+					str+='	<div class="l course-img" style="background-image: url(/img/course/'+image+');">';
+					str+='		<div class=""></div>';
+					str+='	</div>';
+					str+='	<div class="l content-box">';
+					str+='		<p class="smalle-title">'+name+'</p>';
+					str+='		<p class="content-text" title="'+name+'">推荐理由</p>';
+					str+='		<div class="clearfix learn-detail">';
+					str+='			初级<span>·</span>'+learnCount+'人在学';
+					str+='		</div>';
+					str+='	</div>';
+					str+='</a>';
+					str+='</li>';
+					$("#Courses").append(str);
+					}
+				}
+	   		});
+	};
+	
+	function loadNote(){
+		var videoId = getQueryString("videoId");
+		$.ajax({
+			url:"http://localhost:7005/user/findByVideoId",
+			data:{"id":videoId},
+			dataType:"json",
+			type:"get",
+			success:function(result){
+				if(result.code == 0){
+					var notes = result.data;
+					if(notes != null){
+						for(var i = 0; i< notes.length; i++){
+							var context = notes[i].context;
+							var publishTime = notes[i].publishTime;
+							var user = notes[i].users;
+							if(user != null){
+								var name = user.name;
+								var image = user.image;
+							}else{
+								var name = "游客";
+								var image ="72.jpg";
+							}
+							str ='';
+							str +='<div class="headslider l">';
+							str +='<a href="#" class="wenda-head"   title="'+name+'">';
+							str +='<img src="/avatars/'+image+'" alt="'+name+'" width="40"> ';
+							str +='<i class="icon-ques-revert nofinish"></i>';
+							str +='</a>';
+							str +='</div>';
+							str +='<div class="wendaslider">';
+							str +='<h2 class="wendaquetitle">';
+							str +='	<a href="#"  title="'+name+'" class="wenda-nickname">';
+							str +=name;
+							str +='	</a>';
+							str +='	<div class="wendatitlecon">';
+							str +='	<a href="#" class="wendatitle"> ';
+							str +='		  <b> '+context+' </b>';
+							str +='		</a>';
+							str +='</div>';
+							str +='</h2>';
+							str +='</div>';
+							$("#addNote").append(str);
+							
+							str2 = '';
+							str2 +='<li>';
+							str2 +='	<a href="javascript:void(0)"  >'+context+'</a>';
+							str2 +='</li>';
+							$("#likenote").append(str2);
+						}
+					}
+				}
+			}
+		});
+		
+	};
+	
+	
+	
+	function loadIssue(){
+		var videoId = getQueryString("videoId");
+		$.ajax({
+			url:"http://localhost:7008/user/findbyvideoid",
+			data:{"videoId":videoId},
+			dataType:"json",
+			type:"get",
+			success:function(result){
+				if(result.code==0){
+					var  issues= result.data;
+					for(var i = 0;i<issues.length;i++){
+						var issueContext = issues[i].issueContext;
+						var publishTime = issues[i].publishTime;
+						var user = issues[i].user;
+						str ='';
+						str +='<div class="headslider l">';
+						str +='<a href="#" class="wenda-head"   title="'+user.name+'">';
+						str +='<img src="/avatars/xiaoxin.jpg" alt="'+user.name+'" width="40"> ';
+						str +='<i class="icon-ques-revert nofinish"></i>';
+						str +='</a>';
+						str +='</div>';
+						str +='<div class="wendaslider">';
+						str +='<h2 class="wendaquetitle">';
+						str +='	<a href="#"  title="'+user.name+'" class="wenda-nickname">';
+						str +=user.name;
+						str +='	</a>';
+						str +='	<div class="wendatitlecon">';
+						str +='	<a href="#" class="wendatitle"> ';
+						str +='		  <b> '+issueContext+' </b>';
+						str +='		</a>';
+						str +='</div>';
+						str +='</h2>';
+						str +='</div>';
+						$("#addIssue").append(str);
+					}
+				}
+			}
+		});
+	};
+	function loadEvaluate(){
+		var videoId = getQueryString("videoId");
+		$.ajax({
+			url:"http://localhost:7007/user/findevaluate",
+			data:{"id":videoId},
+			dataType:"json",
+			type:"get",
+			success:function(result){
+				if(result.code==0){
+					var  evaluates= result.data;
+					for(var i = 0;i<evaluates.length;i++){
+						var name = evaluates[i].user.name;
+						var image  = evaluates[i].user.image;
+						var context = evaluates[i].context;
+						str ='';
+						str +='<div class="headslider l">';
+						str +='<a href="#" class="wenda-head"   title="'+name+'">';
+						str +='<img src="/avatars/'+ image+'" alt="'+name+'" width="40"> ';
+						str +='<i class="icon-ques-revert nofinish"></i>';
+						str +='</a>';
+						str +='</div>';
+						str +='<div class="wendaslider">';
+						str +='<h2 class="wendaquetitle">';
+						str +='	<a href="#"  title="'+name+'" class="wenda-nickname">';
+						str +=name;
+						str +='	</a>';
+						str +='	<div class="wendatitlecon">';
+						str +='	<a href="#" class="wendatitle"> ';
+						str +='		  <b> '+context+' </b>';
+						str +='		</a>';
+						str +='</div>';
+						str +='</h2>';
+						str +='</div>';
+						$("#addPL").append(str);
+					
+					}
+				}
+			}
+			
+		});
+	};
+	
+	 function getQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) return unescape(r[2]); return null;
+		};
+</script>
+</body>
+</html>

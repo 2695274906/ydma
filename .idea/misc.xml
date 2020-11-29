@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/itsqh-browsing-history/pom.xml" />
+        <option value="$PROJECT_DIR$/itsqh-common/pom.xml" />
+        <option value="$PROJECT_DIR$/itsqh-course/pom.xml" />
+        <option value="$PROJECT_DIR$/itsqh-coursecollect/pom.xml" />
+        <option value="$PROJECT_DIR$/itsqh-direction/pom.xml" />
+        <option value="$PROJECT_DIR$/itsqh-evaluate/pom.xml" />
+        <option value="$PROJECT_DIR$/itsqh-issue/pom.xml" />
+        <option value="$PROJECT_DIR$/itsqh-login-history/pom.xml" />
+        <option value="$PROJECT_DIR$/itsqh-note/pom.xml" />
+        <option value="$PROJECT_DIR$/itsqh-notecollect/pom.xml" />
+        <option value="$PROJECT_DIR$/itsqh-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/itsqh-user/pom.xml" />
+        <option value="$PROJECT_DIR$/ydma-web/pom.xml" />
+        <option value="$PROJECT_DIR$/itsqh-video/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectDictionaryState">
+    <dictionary name="legion" />
+  </component>
+</project>

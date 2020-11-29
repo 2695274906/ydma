@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/itsqh-browsing-history/itsqh-browsing-history.iml" filepath="$PROJECT_DIR$/itsqh-browsing-history/itsqh-browsing-history.iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-parent/itsqh-browsing-history/itsqh-browsing-history (1).iml" filepath="$PROJECT_DIR$/itsqh-parent/itsqh-browsing-history/itsqh-browsing-history (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-common/itsqh-common.iml" filepath="$PROJECT_DIR$/itsqh-common/itsqh-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-parent/itsqh-common/itsqh-common (1).iml" filepath="$PROJECT_DIR$/itsqh-parent/itsqh-common/itsqh-common (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-course/itsqh-course.iml" filepath="$PROJECT_DIR$/itsqh-course/itsqh-course.iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-parent/itsqh-course/itsqh-course (1).iml" filepath="$PROJECT_DIR$/itsqh-parent/itsqh-course/itsqh-course (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-coursecollect/itsqh-coursecollect.iml" filepath="$PROJECT_DIR$/itsqh-coursecollect/itsqh-coursecollect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-direction/itsqh-direction.iml" filepath="$PROJECT_DIR$/itsqh-direction/itsqh-direction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-parent/itsqh-direction/itsqh-direction (1).iml" filepath="$PROJECT_DIR$/itsqh-parent/itsqh-direction/itsqh-direction (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-evaluate/itsqh-evaluate.iml" filepath="$PROJECT_DIR$/itsqh-evaluate/itsqh-evaluate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-parent/itsqh-evaluate/itsqh-evaluate (1).iml" filepath="$PROJECT_DIR$/itsqh-parent/itsqh-evaluate/itsqh-evaluate (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-issue/itsqh-issue.iml" filepath="$PROJECT_DIR$/itsqh-issue/itsqh-issue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-parent/itsqh-issue/itsqh-issue (1).iml" filepath="$PROJECT_DIR$/itsqh-parent/itsqh-issue/itsqh-issue (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-login-history/itsqh-login-history.iml" filepath="$PROJECT_DIR$/itsqh-login-history/itsqh-login-history.iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-note/itsqh-note.iml" filepath="$PROJECT_DIR$/itsqh-note/itsqh-note.iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-parent/itsqh-note/itsqh-note (1).iml" filepath="$PROJECT_DIR$/itsqh-parent/itsqh-note/itsqh-note (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-notecollect/itsqh-notecollect.iml" filepath="$PROJECT_DIR$/itsqh-notecollect/itsqh-notecollect.iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-parent/itsqh-notecollect/itsqh-notecollect (1).iml" filepath="$PROJECT_DIR$/itsqh-parent/itsqh-notecollect/itsqh-notecollect (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-parent/itsqh-parent.iml" filepath="$PROJECT_DIR$/itsqh-parent/itsqh-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-parent/itsqh-test/itsqh-test.iml" filepath="$PROJECT_DIR$/itsqh-parent/itsqh-test/itsqh-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-parent/itsqh-user/itsqh-user (1).iml" filepath="$PROJECT_DIR$/itsqh-parent/itsqh-user/itsqh-user (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-user/itsqh-user (2).iml" filepath="$PROJECT_DIR$/itsqh-user/itsqh-user (2).iml" />
+      <module fileurl="file://$PROJECT_DIR$/itsqh-video/itsqh-video.iml" filepath="$PROJECT_DIR$/itsqh-video/itsqh-video.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ydma-web/itsqh-web.iml" filepath="$PROJECT_DIR$/ydma-web/itsqh-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/project4-2.iml" filepath="$PROJECT_DIR$/.idea/project4-2.iml" />
+    </modules>
+  </component>
+</project>

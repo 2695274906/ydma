@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="itsqh-browsing-history" />
+        <module name="itsqh-browsing-history (1)" />
+        <module name="itsqh-common" />
+        <module name="itsqh-common (1)" />
+        <module name="itsqh-course" />
+        <module name="itsqh-course (1)" />
+        <module name="itsqh-coursecollect" />
+        <module name="itsqh-direction" />
+        <module name="itsqh-direction (1)" />
+        <module name="itsqh-evaluate" />
+        <module name="itsqh-evaluate (1)" />
+        <module name="itsqh-issue" />
+        <module name="itsqh-issue (1)" />
+        <module name="itsqh-login-history" />
+        <module name="itsqh-note" />
+        <module name="itsqh-note (1)" />
+        <module name="itsqh-notecollect" />
+        <module name="itsqh-notecollect (1)" />
+        <module name="itsqh-test" />
+        <module name="itsqh-user (1)" />
+        <module name="itsqh-user (2)" />
+        <module name="itsqh-video" />
+        <module name="itsqh-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="itsqh-browsing-history" target="1.8" />
+      <module name="itsqh-browsing-history (1)" target="1.8" />
+      <module name="itsqh-common" target="1.5" />
+      <module name="itsqh-common (1)" target="1.5" />
+      <module name="itsqh-course" target="1.8" />
+      <module name="itsqh-course (1)" target="1.8" />
+      <module name="itsqh-coursecollect" target="1.8" />
+      <module name="itsqh-direction" target="1.8" />
+      <module name="itsqh-direction (1)" target="1.8" />
+      <module name="itsqh-evaluate" target="1.8" />
+      <module name="itsqh-evaluate (1)" target="1.8" />
+      <module name="itsqh-issue" target="1.8" />
+      <module name="itsqh-issue (1)" target="1.8" />
+      <module name="itsqh-login-history" target="1.8" />
+      <module name="itsqh-note" target="1.8" />
+      <module name="itsqh-note (1)" target="1.8" />
+      <module name="itsqh-notecollect" target="1.8" />
+      <module name="itsqh-notecollect (1)" target="1.8" />
+      <module name="itsqh-parent" target="1.8" />
+      <module name="itsqh-test" target="1.8" />
+      <module name="itsqh-user (1)" target="1.8" />
+      <module name="itsqh-user (2)" target="1.8" />
+      <module name="itsqh-video" target="1.8" />
+      <module name="itsqh-web" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

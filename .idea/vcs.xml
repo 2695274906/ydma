@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/itsqh-common" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/itsqh-course" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/itsqh-coursecollect" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/itsqh-direction" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/itsqh-evaluate" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/itsqh-issue" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/itsqh-login-history" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/itsqh-note" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/itsqh-notecollect" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/itsqh-parent" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/itsqh-parent/itsqh-course" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/itsqh-parent/itsqh-direction" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/itsqh-parent/itsqh-evaluate" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/itsqh-parent/itsqh-user" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/itsqh-user" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/itsqh-video" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/ydma-web" vcs="svn" />
+  </component>
+</project>

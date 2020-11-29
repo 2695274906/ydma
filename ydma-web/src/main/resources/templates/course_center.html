@@ -1,0 +1,571 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>课程中心</title>
+<!-- 网页标题栏图标 -->
+
+<script type="text/javascript">
+	/**
+		这个函数是别人写好的，获得滚到条到当前页面顶部的距离
+	
+	 */
+	function getScrollTop() {
+		var scrollPos;
+		if (window.pageYOffset) {
+			scrollPos = window.pageYOffset;
+		} else if (document.compatMode && document.compatMode != 'BackCompat') {
+			scrollPos = document.documentElement.scrollTop;
+		} else if (document.body) {
+			scrollPos = document.body.scrollTop;
+		}
+		return scrollPos;
+	}
+
+	//这个函数作用是，随着滚动条的变化做出判断 执行逻辑
+	//-moz代表firefox浏览器私有属性,-ms代表IE浏览器私有属性,-webkit代表chrome、safari私有属性
+	//transform代表偏移的意思,translate中数值正数表示向下或向右移,负数代表向上向左移
+	window.onscroll = function() {
+		var dis = getScrollTop();
+		if (dis > 20) {
+			$("#up-img-touch").css({
+				"width" : "100px",
+				"height" : "100px",
+				"-moz-transform" : "translate(50px, 100px)",
+				"-webkit-transform" : "translate(50px, 100px)"
+			});
+
+		} else {
+			$("#up-img-touch").css({
+				"width" : "200px",
+				"height" : "200px",
+				"-moz-transform" : "translate(0px, 0px)",
+				"-webkit-transform" : "translate(0px, 0px)"
+			});
+
+		}
+	};
+</script>
+
+<link rel="stylesheet"
+	href="/style/pagination.css"
+	type="text/css" media="screen">
+<link rel="stylesheet"
+	href="/css/a.css">
+<link rel="stylesheet"
+	href="/css/jquery.css">
+<link rel="stylesheet"
+	href="/css/layer.css">
+<link rel="stylesheet"
+	href="/css/share_style0_16.css">
+<link rel="stylesheet" type="text/css"
+	href="/css/reset.css" />
+
+<style type="text/css">
+.myClassList table td dl dd {
+	margin-top: 88px
+}
+
+#face_panel {
+	z-index: 99999999
+}
+.M-box2{
+	position: absolute;
+	text-align: center;
+	left: 650px;
+	zoom: 1;
+	buttom: 200px;
+	top: 500px;
+}
+</style>
+
+<link rel="stylesheet"
+	href="/css/content.css"
+	type="text/css">
+<style type="text/css">
+.bg-other {
+	height: 220px;
+	background: url(/img/u2.jpg) center
+		top no-repeat #000;
+	background-size: cover
+}
+
+#logo a, .logo a {
+	display: block;
+	height: 60px;
+	width: 140px;
+	background: url(/img/h1.jpg) center
+		center no-repeat;
+	text-indent: 100%;
+	overflow: hidden
+}
+
+#browseTime2{
+	top:10px;
+}
+
+.user-card-box .user-card-item img {
+	width: 36px;
+	height: 36px;
+	border-color: #4d5559;
+	margin-top: 10px
+}
+
+.u-container {
+	margin-left: 415px;
+	min-height: 589px;
+	margin-right: 250px;
+}
+
+#up-img-touch {
+	margin-top: -60px;
+	margin-left: -10px;
+}
+
+.slider .user-pic .suimg {
+	width: 200px;
+	height: 200px;
+	left: 10px;
+}
+
+.img_sousuo {
+	position: relative;
+	left: -25px;
+	top: 12px;
+}
+
+#layui-layer1 {
+	z-index: 19991015;
+	width: 330px;
+	height: 330px;
+	top: 62px;
+	left: 1270px;
+}
+
+.mod-post .post-row {
+	border-bottom: 1px solid #d9dde1;
+	overflow: hidden;
+	padding: 24px 0 16px 24px;
+}
+
+.bd {
+	margin-left: 45px;
+	margin-top: -20px;
+}
+
+#login_pic {
+	width: 50px;
+	border-radius: 50px;
+	top: 18px;
+	position: relative;
+	left: 10px;
+}
+
+.study-tl .time {
+	position: absolute;
+	left: 0;
+	top: 20px;
+	margin-left: -75px;
+	line-height: 10px;
+	font-size: 12px;
+	color: #8a8c8f;
+}
+
+.study-tl .time::before {
+	content: '';
+	display: block;
+	position: absolute;
+	top:15px;
+	left: 70px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: #d0d6d9;
+}
+.study-tt {
+	padding: 0;
+}
+.lv_icon_tick{
+position: relative;
+left: -15px;
+
+}
+
+
+</style>
+
+</head>
+<body>
+	<!-- **页头开始 -->
+		<div th:replace="head_black"></div>	
+	<!-- **页头结束 -->
+
+	<!-- 主体开始 -->
+	<div id="main">
+		<!-- **主体上部背景开始 -->
+		<div class="bg-other user-head-info">
+			<div class="user-info">
+				<h3  class="user-name clearfix">
+					<span id="nick_name">大兄弟</span>
+				</h3>
+				<!--25-->
+				<p class="about-info">
+					<img id="sex1"  class="sexSecret" src="/img/u2.jpg" alt="头像被怪物吃啦!">
+					<span class="u-info-learn"><em></em></span> 
+					<!-- <span class="u-info-credit"> <a href="#">积分<em>0</em></a></span> 
+					<span class="u-info-mp"> <a href="#">经验<em>0</em></a></span> -->
+				</p>
+				<p class="user-desc" id="signature1" >大兄弟哈哈哈</p>
+				<!-- <div class="study-info clearfix">
+					<div class="item follows">
+						<a href="#"><em>1</em> <span>关注</span> </a>
+					</div>
+					<div class="item followers">
+						<a href="#"><em>0</em> <span>粉丝</span> </a>
+					</div>
+				</div> -->
+				<!--.study-info end-->
+			</div>
+			<!-- .user-info end -->
+		</div>
+		<!-- .big-pic end -->
+		<!-- **主体上部背景结束 -->
+
+		<!-- **主体下部开始 -->
+		<div class="wrap">
+			<!-- **主体左边导航开始 -->
+			<div class="slider"
+				style="position: fixed; left: 191.5px; top: 95px;">
+				<!-- **导航图片开始 -->
+				<div class="user-pic">
+					<div class="user-pic-bg su-user-pic-bg"></div>
+					<!--user-pic-big end-->
+					<img id="up-img-touch"  class="img suimg" src="/img/u2.jpg" alt="头像被怪物吃啦!">
+					<div class="set-btn" style="display: none;">
+						<a href="#"> <!-- **这里需要主页链接 --> <i class="icon-set"></i>
+						</a>
+					</div>
+				</div>
+				<!-- **导航图片结束 -->
+				<!-- **导航列表开始 -->
+				<ul>
+					<li  id="openc"><a href="#"> 
+					<img alt=""  src="/images/lv_icon7.jpg" class="lv_icon_tick">
+					<span>浏览记录</span>
+					<img alt=""  src="/images/lv_icon8.jpg" class="lv_icon_drop">
+					</a></li>
+					<li  id="openf"><a href="#"> 
+					<img alt=""  src="/images/lv_icon7.jpg" class="lv_icon_tick">
+					<span>笔记收藏</span>
+					<img alt=""  src="/images/lv_icon8.jpg" class="lv_icon_drop">
+					</a></li>
+					<li  id="openv"><a href="#"> 
+					<img alt=""  src="/images/lv_icon7.jpg" class="lv_icon_tick">
+					<span>课程收藏</span>
+					<img alt=""  src="/images/lv_icon8.jpg" class="lv_icon_drop">
+					</a></li>
+				</ul>
+				<!-- **导航列表结束 -->
+			</div>
+			<!-- **主体左边导航结束 -->
+			<!-- **主体右边内容框浏览记录开始 -->
+			<div id="sgy_fvideo" class="u-container"  style="display: block;">
+				<div class="c-tab clearfix" id="studyTitle">
+					<div class="tool-left l">
+						<a href="#" class="sort-item active">最近的学习视频</a>
+
+					</div>
+					
+				</div>
+				<!-- 视频展示 -->
+				<div id="studyVideos" class="js-course-list my-space-course study-tl">
+				
+				</div>
+				<!-- /视频展示 -->
+			</div>
+			
+			
+			
+			<!-- **主体右边内容框浏览记录结束 -->
+			
+			<!-- **主体右边内容框笔记收藏开始 -->
+			<div id="sgy_fnote" class="u-container"  style="display: none;">
+				<div class="c-tab clearfix">
+					<div class="tool-left l">
+						<a href="#" class="sort-item active">我收藏的笔记</a>
+					</div>
+				</div>
+                
+
+			</div>
+			<!-- **主体右边内容框笔记收藏结束 -->
+			
+			<!-- **主体右边内容框课程收藏开始 -->
+			<div id="sgy_fcourse" class="u-container" style="display: none;">
+				<div class="c-tab clearfix">
+		 			<div class="tool-left l">
+		 				<a href="#" class="sort-item active">我收藏的课程</a>
+		 			</div>
+		 		</div>
+				
+<!-- 				分页
+				<div class="M-box2"></div> -->
+			</div>
+			<!-- **主体右边内容框课程收藏结束 -->
+		</div>
+		<!-- **主体下部结束 -->
+	</div>
+	<!-- **主体结束 -->
+
+	<!-- **页脚开始 -->
+	<div th:replace="footer_black"></div>	
+	<!-- **页脚结束 -->
+
+	<!-- **页面右边固定栏开始 -->
+	<div id="J_GotoTop" class="elevator">
+	</div>
+	<!-- **页面右边固定栏结束 -->
+	
+	<script type="text/javascript">
+		
+
+	 $("#openc").click(function() {
+		  document.getElementById("sgy_fnote").style.display="none";
+		  document.getElementById("sgy_fcourse").style.display="none";
+		  document.getElementById("sgy_fvideo").style.display="block";
+		  
+		 })
+	 $("#openf").click(function() {
+		  document.getElementById("sgy_fvideo").style.display="none";
+		  document.getElementById("sgy_fcourse").style.display="none";
+		  document.getElementById("sgy_fnote").style.display="block";
+		  
+		 })
+	 $("#openv").click(function() {
+	  document.getElementById("sgy_fvideo").style.display="none";
+	  document.getElementById("sgy_fnote").style.display="none";
+	  document.getElementById("sgy_fcourse").style.display="block";
+	 })
+	
+	
+	$(function(){
+		//获取token
+		var token = localStorage.token;
+		//显示个人信息
+		loadUser(token);
+		console.info(token);
+		//浏览记录
+		loadBrowsiongVideos(token);
+		//我收藏的笔记
+		loadCollectNotes(token);
+		//我收藏的课程
+		loadCollectCourses(token);
+	});
+	 //sgy_fcourse
+	 function loadCollectCourses(token){
+		 $.ajax({
+			 url:"http://localhost:7012/course/collect?token="+token,
+			 type:"get", 
+		 	 dataType:"json",
+		 	 success:function(result){
+		 		if(result.code==0){
+		 			var collectCourses = result.data;
+		 			for(var i=0;i<collectCourses.length;i++){
+		 				var collectTime = collectCourses[i].collectTime;
+		 				var collectTime2 = resolvingDate(collectTime);
+		 				
+		 				var courses = collectCourses[i].courses;
+		 				var courseId = courses.id;
+		 				var courseName = courses.name;
+		 				var intro = courses.intro;
+		 				var image = courses.image;
+		 				
+		 				var str='';
+		 				
+		 				str+='<div id="showMyCourses" class="js-course-list my-space-course study-tl study-tt">';
+		 				str+='	<div class="clearfix tl-item  tl-item-first">';
+		 				str+='		<div class="course-list course-list-m">';
+		 				str+='			<ul class="clearfix">';
+		 				str+='				<li class="course-one">';
+		 				str+='					<div class="course-list-img l">';
+		 				str+='						<a href="/user/course?cid='+courseId+'" target="_blank"> <img alt="我们的图片溜走了!" src="/img/course/'+image+'" width="200" height="113"></a>';
+		 				str+='					</div>';
+		 				str+='					<div class="course-list-cont">';
+		 				str+='						<h3 class="study-hd">';
+		 				str+='							<a href="/user/course?cid='+courseId+'" target="_blank">'+courseName+'</a> ';
+		 				str+='						</h3>';
+		 				str+='						 <div class="study-points">';
+		 				str+='							<span class="i-left span-common"></span> ';
+		 				str+='							<span class="i-mid span-common">'+intro+'</span> ';
+		 				str+='							<br><span class="i-right span-common">收藏时间:'+collectTime2+'</span>';
+		 				str+='						</div> ';
+		 				str+='					</div>';
+		 				str+='				</li>';
+		 				str+='			</ul>';
+		 				str+='		</div>';
+		 				str+='	</div>';
+		 				str+='</div>';
+		 				$("#sgy_fcourse").append(str);
+		 			}
+		 		}
+		 	 }
+		 });
+	 };
+	 //sgy_fnote
+	 function loadCollectNotes(token){
+		 $.ajax({
+			url:"http://localhost:7006/find/notcollect?token="+token,
+		 	type:"get", 
+		 	dataType:"json",
+		 	success:function(result){
+		 		if(result.code==0){
+		 			var collectNotes = result.data;
+		 			for(var i=0;i<collectNotes.length;i++){
+		 				var notes = collectNotes[i].notes;
+		 				var collectTime = collectNotes[i].collectTime;
+		 				var collectTime2 = resolvingDate(collectTime);
+		 				var str='';
+		 				
+		 				str+='<div class="course-list course-list-m js-course-list">';
+		 				str+='	<ul id="js-note-container" class="mod-post">';
+		 				str+='		<li class="post-row js-find-txt" >';
+		 				str+='			<div class="media">';
+		 				str+='				<a href="javascript:;"><img src="/img/notes.jpg" width="40" height="40"></a>';
+		 				str+='			</div>';
+		 				str+='			<div class="bd">';
+		 				str+='				<div class="tit">';
+		 				str+='					<h3><a href="/u/3974018/courses" target="_blank">'+notes.title+'</a></h3>';
+		 				str+='				</div>';
+		 				str+='				<div class="js-notelist-content notelist-content mynote">';
+		 				str+='					<pre class="autowrap">笔记内容:   '+notes.context+'</pre>';
+		 				str+='				</div>';
+		 				str+='				<div class="clearfix">';
+		 				str+='					<input class="moco-btn moco-btn-green sava_btn" value="保存" type="button">';
+		 				str+='				</div>';
+		 				str+='				<div class="answercon">';
+		 				str+='				</div>';
+		 				str+='				<div class="footer clearfix">';
+		 				str+='					<span title="4天前" class="l timeago">时间：'+collectTime2+'</span>';
+		 				str+='						<a href="/video/14625" class="from l"></a>';
+		 				str+='					<div class="actions r">';
+		 				str+='						<textarea style="display: none;">mysql运行命令</textarea>';
+		 				str+='					</div>';
+		 				str+='				</div>';
+		 				str+='			</div>';
+		 				str+='		</li>';
+		 				str+='	</ul>';
+		 				str+='</div>';
+		 				$("#sgy_fnote").append(str);
+		 			}
+		 		}
+		 	}
+		 });
+	 };
+	 
+	 
+	 function loadUser(token){
+			$.ajax({
+				url:"http://localhost:7001/user/token",
+				data:{"token":token},
+				dataType:"json",
+				type:"post",
+				success:function(result){
+					if(result.code==0){
+						var users = result.data;
+						$("#nick_name").html(users.nickName);
+						$("#position1").html(users.position);
+						$("#location1").html(users.location);
+						
+						$("#signature1").html(users.signature);
+						$("#up-img-touch").attr("src","/img/"+users.image);
+					}
+				}
+				
+			});
+		};
+	 
+	 
+	 //sgy_fvideo
+	function loadBrowsiongVideos(token){
+		$.ajax({
+			url:"http://localhost:7010/brohis/findByUserId",
+			data:{"token":token},
+			type:"post",
+			typeType:"json",
+			success:function(result){
+				if(result.code==1){
+					alert(result.msg);
+					window.location.href="/login";
+				}
+				if(result.code==0){
+					var userVideos = result.data;
+				
+					for(var i=0;i<userVideos.length;i++){
+						var video = userVideos[i].video;
+						var browseTime = userVideos[i].browseTime;
+						var course = userVideos[i].course;
+						var notes = userVideos[i].note;
+						
+						var notesCount = notes.length;
+						
+						var browseTime2 = resolvingDate(browseTime);
+						var id= video.id;
+						var name= video.name;
+						var url= video.url;
+						var learnCount = course.learnCount;
+						var courseId = course.id;
+						var str = '';
+						
+						str+='<div class="clearfix tl-item  tl-item-first">';
+						str+='	<span class="time" id="browseTime2">'+browseTime2+'</span>';
+						str+='	<div class="course-list course-list-m">';
+						str+='		<ul class="clearfix">';
+						str+='			<li class="course-one">';
+						str+='				<div class="course-list-img l">';
+						str+='					<a href="/video/findByVideoId?vid='+video.id+'" target="_blank"> <img alt="图片不知道去哪玩了" src="/img/course/'+course.image+'" width="200" height="113"></a>';
+						str+='				</div>';
+						str+='				<div class="course-list-cont">';
+						str+='					<h3 class="study-hd">';
+						str+='						<a href="/video/findByVideoId?vid='+video.id+'">'+course.name+"--"+video.name+'</a> ';
+						str+='					</h3>';
+						
+						str+='					<div class="catog-points">';
+						str+='						<br/ ><br/ >	';
+						str+='						<span class="i-left span-common"><a href ="/user/course?cid='+courseId+'">笔记 <i>'+notesCount+'</i></a></span>';
+						str+='						<span class="i-left span-common"><a href ="javascript:return false;">学习人数 <i>'+learnCount+'</i></a></span>';
+										
+						str+='					</div>';
+						str+='				</div>';
+						str+='			</li>';
+						str+='		</ul>';
+						str+='	</div>';
+						str+='</div>';
+						
+						$("#studyVideos").append(str);
+					
+						
+					}
+					
+				}
+			}
+		});		
+	};
+	 
+	function resolvingDate(date){
+		//date是传入的时间
+		 let d = new Date(date);
+		
+		 let month = (d.getMonth() + 1) < 10 ? '0'+(d.getMonth() + 1) : (d.getMonth() + 1);
+		 let day = d.getDate()<10 ? '0'+d.getDate() : d.getDate();
+		 let hours = d.getHours()<10 ? '0'+d.getHours() : d.getHours();
+		 let min = d.getMinutes()<10 ? '0'+d.getMinutes() : d.getMinutes();
+		 let sec = d.getSeconds()<10 ? '0'+d.getSeconds() : d.getSeconds();
+		
+		 let times=d.getFullYear() + '-' + month + '-' + day + ' ' + hours + ':' + min + ':' + sec;
+		
+		 return times
+	}
+	</script>
+</body>
+</html>

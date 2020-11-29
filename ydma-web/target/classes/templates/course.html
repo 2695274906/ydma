@@ -1,0 +1,523 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>兄弟学习网</title>
+<link rel="stylesheet" href="/css/moco.min.css" type="text/css" />
+<link rel="stylesheet" href="/css/common.css" type="text/css">
+<link rel="stylesheet" href="/css/pagination.css" type="text/css">
+<!-- 网页标题栏图标 -->
+<link rel="SHORTCUT ICON" href="favicon.ico" />
+
+<!--问答评论区切换的实现-->
+<link rel="stylesheet"
+	href="/static.mukewang.com/static/css/lv_course_1.css"
+	type="text/css"/>
+<link rel="stylesheet"
+	href="/static.mukewang.com/static/css/lv_course_2.css"
+	type="text/css"/>
+<link rel="stylesheet"
+	href="/static.mukewang.com/static/css/lv_course_3.css"
+	type="text/css"/>
+<link rel="stylesheet"
+	href="/static.mukewang.com/static/css/lv_course_4.css"
+	type="text/css"/>
+<link rel="stylesheet"
+	href="/static.mukewang.com/static/css/lv_course_5.css"
+	type="text/css"/>
+
+<link href="/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+div.panel-body {
+	background-color: #F3F5F7;
+	margin: 5px;
+}
+
+.autowrap {
+	border: none;
+}
+
+#img {
+	width: 45%;
+	height: 60%;
+	float: right;
+}
+
+#lv_icon1 {
+	position: absolute;
+	left: -5px;
+	top: 20px;
+}
+
+#lv_icon3 {
+	/* 	position: relative;
+	left: 550px;
+	top: 5px; */
+	position: absolute;
+	right: 0px;
+	top: 25px;
+}
+
+#favorite:hover {
+	cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div th:replace="head_black"></div>	
+
+	<div id="main">
+
+		<div class="course-infos">
+			<div class="w pr">
+				<div class="path">
+					<a href="javascript:void(0)">课程</a> <i class="path-split">\</i> <a
+						href="javascript:void(0)">Java</a> <i class="path-split">\</i> <a
+						href="#">Java</a>
+
+				</div>
+				<div  class="hd clearfix">
+					<h2 id="courseName" class="l">Java</h2>
+				</div>
+
+				<div class="statics clearfix">
+					<h1>
+						<div class="moco-btn l learn-btn green-btn red-btn">
+						  <a href="video.jsp" class="J-learn-course">开始学习</a> <em></em> 
+					</div>
+					<div class="static-item l">
+						<span class="meta">学习人数</span> 
+						<span id="learnCount" class="meta-value js-learn-num">1032</span>
+					</div>
+					<div class="static-item l">
+						<span class="meta">难度级别</span> 
+						<span id="difficulty" class="meta-value">3</span>
+						<em></em>
+					</div>
+					<div class="static-item l">
+						<span class="meta">课程时长</span> 
+						<span id="learnTime" class="meta-value"></span> <em></em>
+					</div>
+					<div class="static-item l score-btn">
+						<span class="meta">综合评分</span> 
+						<span id="score" class="meta-value">5</span>
+						<em></em>
+					</div>
+					<div class="static-item l">
+						<span class="meta">收藏</span> 
+						<span id="favorite" class="meta-value">99+</span>
+						<em></em>
+					</div>
+				</div>
+				<div class="extra">
+					<!-- credit -->
+					<!-- share -->
+
+				</div>
+			</div>
+			<div class="info-bg" id="js-info-bg">
+				<div class="cover-img-wrap">
+					<img data-src="img/55af49b300018ffc06000338.jpg" alt="" style="display: none" id="js-cover-img">
+				</div>
+				<div class="cover-mask"></div>
+			</div>
+
+		</div>
+
+		<div class="course-info-main clearfix w">
+			<div class="content-wrap">
+				<div class="content">
+					<!-- 课程简介 -->
+					<div id="intro" class="course-brief" >
+						<p class="auto-wrap">简介：简介内容</p>
+					</div>
+					<!-- 	课程简介 end -->
+					<div class="mod-tab-menu ">
+						<ul class="course-menu clearfix">
+							<li>
+								<a class="ui-tabs-active " id="learnOn">
+									<span id="zxy_zhangjie">章节</span>
+								</a>
+							</li>
+							<li>
+								<a id="commentOn" class="">
+									<span id="zxy_pinglun">评论</span>
+								</a>
+							</li>
+							<li>
+								<a id="noteOn" class="" >
+									<span id="zxy_biji">笔记</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					<!-- 	课程章节 -->
+					<div id="chapterList" class="mod-chapters" >
+					
+
+					</div>
+
+					<!-- 	课程章节 结束 -->
+
+					<!-- 	评论开始 -->
+					<!--	发布评论   -->
+					<div id="course_note" style="display: none;">
+						
+						<ul class="mod-post" id="loadCourseEvaluate">
+
+							
+						</ul>
+
+					</div>
+
+
+					<!-- 	评论结束 -->
+
+					<!-- 	笔记开始 -->
+					<div id="loadNote"  style="display: none;">
+					
+						<ul id="loadCourseNote" class="mod-post">
+							
+						</ul>
+					</div>
+
+					<!-- 	笔记结束 -->
+
+				</div>
+
+				<!--content-wrap end-->
+				<div class="aside r ">
+					<div class="bd ">
+						<div class="js-recom-box ">
+
+							<div class="box mb40 recom-course-list-box ">
+								<h4>推荐课程</h4>
+								<ul class="js-recom-course recom-course-list clearfix " id="tuijian">
+									
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="clear "></div>
+
+		</div>
+		<!-- 视频介绍 -->
+		<div id="js-video-wrap " class="video pop-video "
+			style="display: none">
+			<div class="video_box " id="js-video "></div>
+			<a href="javascript:; " class="pop-close icon-close "></a>
+		</div>
+
+	</div>
+
+	<!-- 插入底部代码 -->
+	<div th:replace="footer_black"></div>	
+
+	<script type="text/javascript">
+	
+	 $("#learnOn").click(function() {
+		  document.getElementById("course_note").style.display="none";
+		  document.getElementById("loadNote").style.display="none";
+		  document.getElementById("chapterList").style.display="block";
+		  
+		 })
+	 $("#commentOn").click(function() {
+		  document.getElementById("chapterList").style.display="none";
+		  document.getElementById("loadNote").style.display="none";
+		  document.getElementById("course_note").style.display="block";
+		  
+		 })
+		 $("#noteOn").click(function() {
+		  document.getElementById("chapterList").style.display="none";
+		  document.getElementById("course_note").style.display="none";
+		  document.getElementById("loadNote").style.display="block";
+		 })
+	
+		function getQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) return unescape(r[2]); return null;
+		};
+
+		$(function(){
+			//	获取请求URL中cid参数（课程ID）
+			var cid = getQueryString("cid");
+			
+			//	根据课程ID加载课程基本信息
+			loadCourse(cid);
+			//	根据课程ID加载章节和视频列表信息
+			loadCourseChapterAndVideos(cid);
+			//	根据课程ID加载笔记列表
+			//loadCourseNote(cid);
+			//	根据课程ID加载评价列表
+			//loadCourseEvaluate(cid);
+			//推荐
+			loadOracleCourses(cid);
+		});
+		
+		//推荐
+		function loadOracleCourses(cid){
+			$.ajax({
+				url:"http://localhost:7002/course/subject",
+				type:"get",
+				data:{"sid":cid,"size":4},
+				dataType:"json",
+				success:function(result){
+					if(result.code==0){
+						var courses = result.data;//获取oracle推荐课程
+						//	循环显示oracle推荐课程
+						for(var i=0;i<courses.length;i++){
+							var id = courses[i].id;
+							var name = courses[i].name;
+							var intro = courses[i].intro;
+							var price = courses[i].price;
+							var learnCount = courses[i].learnCount;
+							var image = courses[i].image;
+							//	生成一个课程元素，添加到显示区
+							var str = '';
+							str+='<li class="clearfix ">';
+							str+='<a href="/user/course?cid='+id+'" class="clearfix ">';
+							str+='	<div class="l course-img " style="background-image: url(/img/course/'+image+');">';
+							str+='		<div class=" "></div>';
+							str+='	</div>';
+							str+='<div class="l content-box ">';
+							str+='	<p class="smalle-title ">'+name+'</p>';
+							str+='	<p class="content-text " title="介绍 ">'+intro+'</p>';
+							str+='	<div class="clearfix learn-detail ">';
+							str+='		<span>·</span>'+learnCount+'人在学';
+							str+='		</div>';
+							str+='	</div>';
+							str+='</a>';
+							str+='</li>';
+							$("#tuijian").append(str);
+						}
+					}
+				}
+			});
+		};
+		
+		
+		
+		function loadCourseChapterAndVideos(cid){
+			$.ajax({
+				url:"http://localhost:7003/course/chapter/video",
+				type:"get",
+				data:{"id":cid},
+				dataType:"json",
+				success:function(result){
+					if(result.code==0){
+						var chapters = result.data;//获取课程章节及视频集合
+						for(var i=0;i<chapters.length;i++){
+							var id = chapters[i].id;
+							var name = chapters[i].name;
+							var videos = chapters[i].videos;
+							var notes = chapters[i].notes;
+							//拼一个列表元素
+							var str = '';
+							str+='<div class="panel chapter">';
+							str+='	<div class="panel-heading">';
+							str+='		<h4 class="panel-title">';
+							str+='			<a data-toggle="collapse" data-parent="javascript:void(0)"	href="#">';
+							str+='				<h3>';
+							str+='					<img alt="" src="/course/icon/lv_icon1.jpg"  id="lv_icon1">';
+							str+='					<strong>';
+							str+='						&nbsp;&nbsp;&nbsp;&nbsp;';
+							str+='						'+name;
+							str+='						<img alt="" src="/course/icon/lv_icon2.jpg"  id="lv_icon2">';
+							str+='					</strong>';
+							str+='						<img alt="" src="/course/icon/lv_icon3.jpg"  id="lv_icon3">';
+							str+='				</h3>';
+							str+='			</a>';
+							str+='		</h4>';
+							str+='	</div>';
+							str+='	<div  class="panel-collapse">';
+							for(var j=0;j<videos.length;j++){
+								var videoId = videos[j].id;
+								var videoName = videos[j].name;
+								str+='		<div class="panel-body">';
+								str+='			<a href="/course/video?videoId='+videoId+'" >'+videoName;
+								str+='				<button class="r moco-btn moco-btn-blue preview-btn">开始学习</button></a>';
+								str+='		</div>';
+							}
+							str+='	</div>';
+							str+='</div>';
+							//	添加到章节列表显示区
+							$("#chapterList").append(str);
+							
+							//		展示笔记
+							for(var n = 0; n < notes.length; n++){
+								var id = notes[n].id;
+								var publishTime = notes[n].publishTime;
+								var likeCount = notes[n].likeCount;
+								var context = notes[n].context;
+								var userId = notes[n].userId;
+								
+								var users = notes[n].users;
+								
+								
+								var str = '';
+									str +='<li id="1785781" class="post-row js-find-txt" courseid="36" noteId="1785781" authorid="5521765">';
+									str +='<div class="media">';
+									str +='<a href="/u/5521765/courses" target="_blank">';
+									str +='	<img src="http://img.mukewang.com/5959a6570001bb7e01000100-40-40.jpg" width="40" height="40">';
+									str +='</a>';
+									str +='</div>';
+									str +='<div class="bd">';
+									if(users!=null){
+										str +='<div class="tit">';
+										str +='<a href="/u/5521765/courses" target="_blank">'+users.name+'</a>';
+										str +='</div>';
+									}else{
+										str +='<div class="tit">';
+										str +='<a href="/u/5521765/courses" target="_blank">游客</a>';
+										str +='</div>';
+									}
+										str +='<div class="js-notelist-content notelist-content mynote">';
+										str +='<pre class="autowrap">';
+											str +=context;
+												str +='<div class="notelist-content-more">';
+											str +='		<a href="javascript:;" class="js-toggle-content">[ 查看全文 ]</a>';
+												str +='	</div>';
+											str +='</div>';
+										str +='<div class="clearfix">';
+										str +='<input class="moco-btn moco-btn-green sava_btn" type="button" value="保存">';
+											str +='</div>';
+										str +='<div class="footer clearfix">';
+										str +='<span title="'+resolvingDate(publishTime)+'" class="l timeago">时间：'+resolvingDate(publishTime) +'</span>';
+											str +='<a href="/code/407" class="from l">';
+												str +='源自:';
+													str +='</a>';
+												str +='<div class="actions r">';
+											str +='<textarea style="display: none;">笔记内容</textarea>';
+												str +='<a  title="采集" href="javascript:;" class="Jcollect post-action " data-mid="407|5521765">';
+												str +='<i>采集</i>';
+													str +='<em>0</em>';
+													str +='</a>'; 
+												str +='<a  title="赞" href="javascript:;" class="Jpraise post-action" data-mid="407">'; 
+												str +='<span onclick=\"zan('+id+')\" class="icon-thumb-revert">'+likeCount+'</span>'; 
+													str +='</a>';
+												str +='</div>';
+											str +='</div>';
+										str +='	</div>';
+								str +='</li>';
+							
+								$("#loadCourseNote").append(str);
+								
+								
+								//	展示评论
+								var evaluates = chapters[i].evaluates;
+								for(var e = 0; e < evaluates.length; e++ ){
+									var useId  = evaluates[e].useId;
+									var publishTime = evaluates[e].publishTime;
+									var likeCount = evaluates[e].likeCount;
+									var context = evaluates[e].context;
+									var users = evaluates[e].users;
+									
+									
+									var str = '';
+									str += "<li class='post-row' id='63036'>";
+									str += "<div class='media'>";
+									str += "<a href='' target='_blank'> ";
+									str += "		<img src='/avatars/paopao.jpg' width='40' height='40'>";
+									str += "	</a>";
+									str += "</div>";
+									str += "<div class='bd'>";
+									if(users!=null){
+									str += "	<div class='tit'>";
+									str += "		<a href='#' target='_blank'>"+users.name+"</a>";
+									str += "	</div>";
+									}else{
+										str += "	<div class='tit'>";
+										str += "		<a href='#' target='_blank'>游客</a>";
+										str += "	</div>";
+									}
+									str += "<p class='cnt'>"+context+"</p>";
+									str += "<div class='footer clearfix'>";
+									str += "	<span title='创建时间' class='l timeago'>";
+									str += "		时间："+resolvingDate(publishTime)+"";
+									str += "	</span> ";
+									str += "	<a title='赞' class='js-pl-praise list-praise r' data-id='452768'>";
+									str += "	<img src='/images/iconzan.jpg' id='lick_count_a'> ";
+									str += "	<span id='zxy_like_count'>";
+									str += likeCount;
+									str += "		</span>";
+									str += "	</a>";
+									str += "</div>";
+									str += "</div>";
+									str += "</li>";
+									
+									$("#loadCourseEvaluate").append(str);
+								}
+							}
+						}
+					}
+				}
+			});
+		};
+		
+		function zan(id){
+			$.ajax({
+				url:"http://localhost:7005/user/likeCount",
+				type:"get",
+				data:{"id":id},
+				dataType:"json",
+				success:function(result){
+					if(result.code==0){
+						$(id).text(result.likeCount);
+					}
+				}
+			})
+			
+			
+			
+		}
+		
+		function resolvingDate(date){
+			//date是传入的时间
+		  let d = new Date(date);
+
+		  let month = (d.getMonth() + 1) < 10 ? '0'+(d.getMonth() + 1) : (d.getMonth() + 1);
+		  let day = d.getDate()<10 ? '0'+d.getDate() : d.getDate();
+		  let hours = d.getHours()<10 ? '0'+d.getHours() : d.getHours();
+		  let min = d.getMinutes()<10 ? '0'+d.getMinutes() : d.getMinutes();
+		  let sec = d.getSeconds()<10 ? '0'+d.getSeconds() : d.getSeconds();
+
+		  let times=d.getFullYear() + '-' + month + '-' + day + ' ' + hours + ':' + min + ':' + sec;
+
+		  return times
+			}
+		
+		
+		
+		
+		function loadCourse(cid){
+			$.ajax({
+				url:"http://localhost:7002/course/"+cid,
+				type:"get",
+				dataType:"json",
+				success:function(result){
+					if(result.code==0){
+						var course = result.data;//获取返回的课程对象
+						$("#courseName").html(course.name);
+						$("#learnCount").html(course.learnCount);
+						$("#intro").html(course.intro);
+						$("#difficulty").html(course.difficulty);
+						$("#score").html(course.score);
+						$("#learnTime").html(course.learnTime+'小时');
+					}
+				}
+			});
+		}
+		
+		
+		
+			   
+	</script>
+	
+</body>
+</html>
